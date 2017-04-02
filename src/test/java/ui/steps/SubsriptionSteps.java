@@ -41,4 +41,11 @@ public class SubsriptionSteps {
     assertThat(page.getCartPrice(), equalTo(purchasePrice));
 
   }
+
+  public SubsriptionSteps purchaseClassicPlan() {
+    navigateToRecipeBoxes();
+    selectClassicPlan();
+    addPlanToCart();
+    return this;
+  }
 }

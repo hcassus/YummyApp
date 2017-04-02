@@ -1,8 +1,7 @@
 package ui.pages;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,7 +19,7 @@ public class LoggedAreaPage extends BasePage {
   }
 
   public String getLoggedUserName() {
-    wait.until(presenceOfElementLocated(By.cssSelector(USER_NAME_CSS_SELECTOR)));
+    wait.until(visibilityOf(loggedUserName));
     return loggedUserName.getText();
   }
 }

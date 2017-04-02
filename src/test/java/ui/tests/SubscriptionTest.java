@@ -18,9 +18,7 @@ public class SubscriptionTest extends BaseUITestCase {
   @Test
   public void subscribeToPlanTest() {
     subscriptionSteps
-        .navigateToRecipeBoxes()
-        .selectClassicPlan()
-        .addPlanToCart()
+        .purchaseClassicPlan()
         .verifySelectedPlanIsCorrect();
   }
 }

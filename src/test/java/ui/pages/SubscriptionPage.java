@@ -44,6 +44,7 @@ public class SubscriptionPage extends BasePage {
   }
 
   public void clickRecipeBoxesOption() {
+    wait.until(visibilityOf(recipeBoxesOption));
     recipeBoxesOption.click();
   }
 
