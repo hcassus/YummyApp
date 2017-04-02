@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {},
+  "id": "http://example.com/example.json",
+  "properties": {
+    "RestResponse": {
+      "id": "/properties/RestResponse",
+      "properties": {
+        "messages": {
+          "id": "/properties/RestResponse/properties/messages",
+          "items": {
+            "id": "/properties/RestResponse/properties/messages/items",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "result": {
+          "id": "/properties/RestResponse/properties/result",
+          "properties": {
+            "alpha2_code": {
+              "id": "/properties/RestResponse/properties/result/properties/alpha2_code",
+              "type": "string"
+            },
+            "alpha3_code": {
+              "id": "/properties/RestResponse/properties/result/properties/alpha3_code",
+              "type": "string"
+            },
+            "name": {
+              "id": "/properties/RestResponse/properties/result/properties/name",
+              "type": "string"
+            }
+          },
+          "required": [
+            "alpha2_code",
+            "alpha3_code",
+            "name"
+          ],
+          "type": "array"
+        }
+      },
+      "required": [
+        "messages",
+        "result"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "RestResponse"
+  ],
+  "type": "object"
+}
