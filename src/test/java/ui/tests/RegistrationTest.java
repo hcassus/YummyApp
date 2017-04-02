@@ -7,7 +7,7 @@ public class RegistrationTest extends BaseUITestCase {
 
   @Ignore
   @Test
-  public void successfulRegistrationTest(){
+  public void successfulRegistrationTest() {
     homeSteps
         .registerNewUser()
         .verifyCorrectUserIsLoggedIn();

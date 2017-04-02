@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class SubscriptionPage extends BasePage{
+public class SubscriptionPage extends BasePage {
 
   @FindBy(xpath = "//a[img[contains(@src, 'three-dot-icon')]]")
   private WebElement optionMenu;

@@ -15,7 +15,7 @@ public abstract class BaseUITestCase {
   HomeSteps homeSteps;
 
   @Before
-  public void setUp(){
+  public void setUp() {
     driver = new ChromeDriver();
     wait = new WebDriverWait(driver, 15);
     homeSteps = new HomeSteps(driver, wait);
@@ -23,7 +23,7 @@ public abstract class BaseUITestCase {
   }
 
   @After
-  public void tearDown(){
+  public void tearDown() {
     driver.quit();
   }
 

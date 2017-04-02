@@ -14,8 +14,8 @@ public class HomeSteps {
   private static final String VALID_USER = "hf_testuser@trash-mail.com";
   private static final String VALID_PASSWORD = "123123123";
   private static final String VALID_USER_NAME = "Test U.";
-  HomePage homePage;
-  LoggedAreaPage loggedAreaPage;
+  private HomePage homePage;
+  private LoggedAreaPage loggedAreaPage;
 
   public HomeSteps(WebDriver driver, WebDriverWait wait) {
     homePage = new HomePage(driver, wait);
@@ -49,17 +49,17 @@ public class HomeSteps {
     homePage.fillLastName("User");
     homePage.fillEmailField(generateRandomEmail());
     homePage.fillPasswordField("123123123");
-    fillBirthDate("04", "23", "1988");
+    fillBirthDate();
     homePage.checkNewsletterCheckbox();
   }
 
   private String generateRandomEmail() {
-    return String.format("hf_%s@trash-mail.com", UUID.randomUUID().toString()) ;
+    return String.format("hf_%s@trash-mail.com", UUID.randomUUID().toString());
   }
 
-  private void fillBirthDate(String month, String day, String year) {
-    homePage.fillBirthMonth(month);
-    homePage.fillBirthDay(day);
-    homePage.fillBirthYear(year);
+  private void fillBirthDate() {
+    homePage.fillBirthMonth("04");
+    homePage.fillBirthDay("23");
+    homePage.fillBirthYear("1988");
   }
 }

@@ -10,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class HomePage extends BasePage{
+public class HomePage extends BasePage {
 
   private static final String LOGIN_BUTTON_ID = "login-button";
 
@@ -99,7 +99,7 @@ public class HomePage extends BasePage{
   }
 
   public void checkNewsletterCheckbox() {
-    if(!newsletterCheckbox.isSelected()){
+    if (!newsletterCheckbox.isSelected()) {
       newsletterCheckbox.click();
     }
   }
@@ -112,7 +112,7 @@ public class HomePage extends BasePage{
     birthDayField.sendKeys(day);
   }
 
-  public void fillBirthYear(String year){
+  public void fillBirthYear(String year) {
     birthYearField.sendKeys(year);
   }
 }

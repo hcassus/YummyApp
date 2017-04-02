@@ -20,10 +20,10 @@ import java.util.Map;
 public class ApiSteps {
 
   private Response response;
-  private Map<String,String> country;
+  private Map<String, String> country;
 
   @Before
-  public void setUp(){
+  public void setUp() {
     RestAssured.baseURI = "http://services.groupkt.com/country/";
     response = null;
   }
@@ -40,11 +40,14 @@ public class ApiSteps {
   }
 
   @Then("^I check the following countries are successfully retrieved$")
-  public void verifyRequiredCountriesAreReturnedSuccessfully(List<String> countries) throws Throwable {
+  public void verifyRequiredCountriesAreReturnedSuccessfully(List<String> countries)
+      throws Throwable {
     assertThat(response.statusCode(), equalTo(200));
-    assertThat(response.getBody().print(), matchesJsonSchemaInClasspath("country-list-schema.json"));
-    assertThat(response.getBody().path("RestResponse.result.alpha2_code"), hasItems(countries.toArray() ));
-    }
+    assertThat(response.getBody().print(),
+        matchesJsonSchemaInClasspath("country-list-schema.json"));
+    assertThat(response.getBody().path("RestResponse.result.alpha2_code"),
+        hasItems(countries.toArray()));
+  }
 
   @Given("^I have an API with country information to consume$")
   public void setUpCountryDetailsApi() throws Throwable {
@@ -52,12 +55,13 @@ public class ApiSteps {
   }
 
   @When("^I consume the country (.*)$")
-  public void iConsumeTheCountryCountry(String country) throws Throwable {
+  public void consumeCountry(String country) throws Throwable {
+    RestAssured.basePath = "/get/iso2code";
     response = RestAssured.get(String.format("/%s", country));
   }
 
   @Then("^I verify the data retrieved respects the expected structure$")
-  public void iVerifyTheDataRetrievedRespectsTheExpectedStructure() throws Throwable {
+  public void checkDataFollowsStructure() throws Throwable {
     assertThat(response.statusCode(), equalTo(200));
     assertThat(response.getBody().print(), matchesJsonSchemaInClasspath(
         "country-detail-schema.json"));
@@ -65,12 +69,15 @@ public class ApiSteps {
 
   @Given("^I have an API to create a new country$")
   public void setUpCreationApi() throws Throwable {
-    RestAssured.baseURI =  "http://demo6295711.mockable.io";
+    RestAssured.baseURI = "http://demo6295711.mockable.io";
+    RestAssured.basePath = "/post";
+
   }
 
   @When("^I create a new country with the following data$")
   public void postCountryToEndpoint(DataTable countryData) throws Throwable {
     String json = new Gson().toJson(countryData.asMap(String.class, String.class));
-    RestAssured.given().contentType(ContentType.JSON).body(json).post("/post");
+    response = RestAssured.given().contentType(ContentType.JSON).body(json).post();
+    assertThat(response.statusCode(), equalTo(200));
   }
 }
