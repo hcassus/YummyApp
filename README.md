@@ -19,3 +19,6 @@ In order not to bloat the production environment with dummy users, the registrat
 * Right after login, one screen is shown, loaded, but right after redirected ("in your box" area). Since the load takes a while, that may also cause suboptimal user experience
 * Ids for box/plan elements are not uniform between countries, which leads to hacky solutions to make the test compatible with both places
 * The landing page is extremely heavy (11s to load, almost 5MB in assets and 171 requests) which causes both slower tests and slower experience to the user
+* In order to have a proper test, the endpoint for post was mocked using mockable.io
+* The name for the mocked endpoint as `post` was kept solely for consistency purposes. The ideal scenario would be a single `country` endpoint suporting retrival of the list, of the country data by code and the creation of it.
+* Although cucumber is a very powerful tool for Gherkin scenarios, RestAssured also contains Gherkin hooks that could be used for the sake of readability diminishing the complexity of the stack and improving maintainability
