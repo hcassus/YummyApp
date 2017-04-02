@@ -1,4 +1,8 @@
 # YummyApp
+
+## Documentation
+The documentation for the Cucumber features are specified [here](http://www.relishapp.com/hcassus/YummyApp/docs/consume-country-api) using Relish.
+
 ## Requirements
 * Java 8
 * Maven 3.3.9
