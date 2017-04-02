@@ -1,4 +1,5 @@
 # YummyApp
+https://codeship.com/projects/d6147760-f9f0-0134-3cb1-4e1e5050a870/status?branch=master
 
 ## Documentation
 The documentation for the Cucumber features are specified [here](http://www.relishapp.com/hcassus/YummyApp/docs/consume-country-api) using Relish.
