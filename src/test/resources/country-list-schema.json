@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "definitions": {},
-  "id": "http://example.com/example.json",
+  "id": "http://yummyapp/country.json",
   "properties": {
     "RestResponse": {
       "id": "/properties/RestResponse",
@@ -19,11 +19,11 @@
           "properties": {
             "alpha2_code": {
               "id": "/properties/RestResponse/properties/result/properties/alpha2_code",
-              "type": "string"
+              "pattern": "^[A-Z]{2}$"
             },
             "alpha3_code": {
               "id": "/properties/RestResponse/properties/result/properties/alpha3_code",
-              "type": "string"
+              "pattern": "^[A-Z]{3}$"
             },
             "name": {
               "id": "/properties/RestResponse/properties/result/properties/name",
